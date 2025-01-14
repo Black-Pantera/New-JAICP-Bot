@@ -1,6 +1,6 @@
-require: slotfilling/slotfilling.sc
-    module = sys.zb-common
-require: patterns.sc
+patterns:
+    $hello: (салют|привет|здравствуй*|здарова|добрый (день|вечер))
+
 theme: /
 
     state: Start
