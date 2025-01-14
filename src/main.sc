@@ -11,7 +11,6 @@ theme: /
 
     state: Start
         q!: *start
-        q!: * $hello *
         q: * (отмен*|стоп|хватит) * || fromState = /SuggestPlay
         script:
             $temp.botName = capitalize($injector.botName);
