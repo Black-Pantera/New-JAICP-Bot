@@ -6,5 +6,8 @@ function getPlayChoicr(pt)
         return "Безумный день, или Женитьбя Фигаро";
     } else if (pt._violinist) {
         return "Скрипач на крыше";
+    } else if (pt._ticketRefund) {
+        return "OK";
     }
+    
 }

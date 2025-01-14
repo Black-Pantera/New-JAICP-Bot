@@ -91,7 +91,8 @@ theme: /
         state: ClientAnswer
             q: * $ticketRefund *
             script:
-                $reactions.answer($parseTree);
+                var answer = getPlayChoicr($parseTree);
+                $reactions.answer(answer);
     
         
 
