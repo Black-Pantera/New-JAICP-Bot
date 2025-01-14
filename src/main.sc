@@ -89,6 +89,9 @@ theme: /
       
         state: ClientAnswer
             q: (да|отмена)
+            q: * $ticketRefund *
+            script:
+                $reactions.answer($parseTree);
     
         
 
