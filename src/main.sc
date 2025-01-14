@@ -48,9 +48,9 @@ theme: /
                 "Скрипач на крыше" 
         
         state: ChoosePlay
-            q: * (~брак|~итал) *
-            q: * (женит*|~фигаро) *
-            q: * (~скрипач|~крыша) *
+            q: * ($marriage|$figaro|$violinist) *
+            script:
+                log("///////// MY LOG "+toPrettyString($parseTree))
             go!: /HowManyTickets
             
         state: LocalCatchAll
