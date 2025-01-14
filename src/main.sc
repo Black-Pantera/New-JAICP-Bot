@@ -1,5 +1,4 @@
 require: patterns.sc
-    module = patterns
     
 theme: /
 
