@@ -74,6 +74,20 @@ theme: /
         script:
             var answer = "Итак, вы заказали " + $session.TicketsNumber + " " + $nlp.conform("билет", $session.TicketsNumber) +" на спектакль '"+$session.chosenPlay+"'.";
             $reactions.answer(answer);
+        go!: /TotalConfirm
+            
+    state: TotalConfirm
+        a: Пожалуйста, подтвердите ваш запрос.
+        if: $request.channelType === "telegram"
+            inlineButtons:
+                { text: "Да", url: "" }
+                { text: "Отмена", url: "" }
+        else:
+            buttons:
+                "Да"
+                "Отмена" 
+      
+        
     
         
 
