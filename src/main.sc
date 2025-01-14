@@ -1,5 +1,6 @@
+require: slotfilling/slotfilling.sc
+    module = sys.zb-common
 require: patterns.sc
-
 theme: /
 
     state: Start
