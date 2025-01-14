@@ -23,10 +23,10 @@ theme: /
     state: SuggestPlay || modal = true
         a: Какой спектакль вас интересует?
         a: {{$request.channelType}}
-            buttons:
-                "Брак по итальянски"
-                "Женитьбя Фигаро" 
-                "Скрипач на крыше" 
+        buttons:
+            "Брак по итальянски"
+            "Женитьбя Фигаро" 
+            "Скрипач на крыше" 
         
         state: ChoosePlay
             q: * (~брак|~итал) *
