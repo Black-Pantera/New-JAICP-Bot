@@ -22,7 +22,6 @@ theme: /
             
     state: SuggestPlay || modal = true
         a: Какой спектакль вас интересует?
-        a: {{$request.channelType}}
         if: $request.channelType === "telegram"
             inlineButtons:
                 { text: "Брак по итальянски", url: "https://teatrkachalov.ru/affiche/detail/?id=1246" }
