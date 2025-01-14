@@ -1,5 +1,7 @@
 require: patterns.sc
 
+require: funcs.js
+
 init:
     bind("postProcess", function($context) {
         $context.session.lastState = $context.currentState;
@@ -50,7 +52,8 @@ theme: /
         state: ChoosePlay
             q: * ($marriage|$figaro|$violinist) *
             script:
-                log("///////// MY LOG "+toPrettyString($parseTree))
+                log("///////// MY LOG "+toPrettyString($parseTree));
+                $session.chosenPlay = getPlayChoicr($parseTree);
             go!: /HowManyTickets
             
         state: LocalCatchAll
@@ -60,6 +63,18 @@ theme: /
             
     state: HowManyTickets
         a: Скольно билетов вам нужно?
+        
+        state: GetTicketsNumber
+            q: * @duckling.number *
+            script:
+                $session.TicketsNumber = $parseTree["_duckling.number"];
+            go!: /Confirm
+            
+    state: Confirm
+        script:
+            var answer = "Итак, вы заказали " + $session.TicketsNumber + " " + nlp.conform("билет", $session.TicketsNumber) +" на спектакль '"+$session.chosenPlay+"'";
+            $reactions.answer(answer);
+    
         
 
     
