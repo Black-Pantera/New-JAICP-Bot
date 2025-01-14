@@ -37,7 +37,7 @@ theme: /
         state: LocalCatchAll
             event: noMatch
             a: Такаго спектакля пока нет на нашем реперутуаре. Выберите спектакль из списка.
-            go!: ..
+            go!: /SuggestPlay
             
     state: HowManyTickets
         a: Скольно билетов вам нужно?
