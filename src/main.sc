@@ -6,9 +6,11 @@ theme: /
         q!: *start
         q!: * $hello *
         q: * (отмен*|стоп|хватит) * || fromState = /SuggestPlay
+        script:
+            $temp.botName = capitalize($injector.botName);
         random:
-            a: Добрый день! Меня зовут {{$injector.botName}}. Я помогу вам купить билет в театр Качалова.
-            a: Здравствуйте! Меня зовут {{$injector.botName}}. Могу помочь с приобретением билета в театр Качалова.
+            a: Добрый день! Меня зовут {{$temp.botName}}. Я помогу вам купить билет в театр Качалова.
+            a: Здравствуйте! Меня зовут {{$temp.botName}}. Могу помочь с приобретением билетов в театр Качалова.
         script: $response.replies = $response.replies || [];
             $response.replies.push({
                 type: "image",
