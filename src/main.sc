@@ -5,6 +5,7 @@ theme: /
     state: Start
         q!: *start
         q!: * $hello *
+        q: * (отмен*|стоп|хватит) * || fromState = /SuggestPlay
         random:
             a: Добрый день! Я помогу вам купить билет в театр Качалова.
             a: Здравствуйте! Могу помочь с приобретением билета в театр Качалова.
@@ -37,7 +38,7 @@ theme: /
         state: LocalCatchAll
             event: noMatch
             a: Такаго спектакля пока нет на нашем реперутуаре. Выберите спектакль из списка.
-            go!: /SuggestPlay
+            go!: ..
             
     state: HowManyTickets
         a: Скольно билетов вам нужно?
