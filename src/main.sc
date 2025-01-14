@@ -12,7 +12,7 @@ theme: /
         script: $response.replies = $response.replies || [];
             $response.replies.push({
                 type: "image",
-                imageUrl: "https://www.svgrepo.com/svg/240463/tickets-ticket",
+                imageUrl: "https://teatrkachalov.ru/upload/resize_cache/iblock/864/1200_1000_1/l769kon782cznlnnm9ao0fgkdt48ut3h.jpg",
                 text: "Tickets"
                 });
         go!: /SuggestPlay
