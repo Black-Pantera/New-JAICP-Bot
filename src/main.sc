@@ -73,25 +73,14 @@ theme: /
         script:
             var answer = "Итак, вы заказали " + $session.TicketsNumber + " " + $nlp.conform("билет", $session.TicketsNumber) +" на спектакль '"+$session.chosenPlay+"'.";
             $reactions.answer(answer);
-        go!: /TotalConfirm
-            
-    state: TotalConfirm
-        a: Пожалуйста, подтвердите ваш запрос.
-        if: $request.channelType === "telegram"
-            inlineButtons:
-                { text: "Да", url: "" }
-                { text: "Отмена", url: "" }
-                { text: "Сдать билет", url: ""}
-        else:
-            buttons:
-                "Да"
-                "Отмена" 
-      
-        state: ClientAnswer
-            q: * $ticketRefund *
-            script:
-                var answer = getPlayChoicr($parseTree);
-                $reactions.answer(answer);
+       
+    state: ClientAnswer
+        q!: *  {билет* * (сдать/вернуть)}  *
+        q!: *  {билет* * (отмен*/возврат*)}  *
+        q!: * {брон* * отмен*} *
+        q!: * {комисс* * возврат*}  *
+        a: Информацию по возврату билетов вы можете найти на сайте компании.
+
     
         
 
