@@ -9,6 +9,12 @@ theme: /
         random:
             a: Добрый день! Я помогу вам купить билет в театр Качалова.
             a: Здравствуйте! Могу помочь с приобретением билета в театр Качалова.
+        script: $response.replies = $response.replies || [];
+            $response.replies.push({
+                type: "image",
+                imageUrl: "https://www.svgrepo.com/svg/240463/tickets-ticket",
+                text: "Tickets"
+                });
         go!: /SuggestPlay
             
     state: CatchAll || noContext = true
