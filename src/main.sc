@@ -82,6 +82,7 @@ theme: /
             inlineButtons:
                 { text: "Да", url: "" }
                 { text: "Отмена", url: "" }
+                { text: "Сдать билет", url: ""}
         else:
             buttons:
                 "Да"
