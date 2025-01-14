@@ -1,6 +1,5 @@
-patterns:
-    $hello: (салют|привет|здравствуй*|здарова|добрый (день|вечер))
-
+require: patterns.sc
+   
 theme: /
 
     state: Start
@@ -9,8 +8,9 @@ theme: /
         random:
             a: Добрый день! Я помогу вам купить билет в театр Качалова.
             a: Здравствуйте! Могу помочь с приобретением билета в театр Качалова.
+        go!: /SuggestPlay
             
-    state: CatchAll
+    state: CatchAll || noContext = true
         event!: noMatch
         random:
             a: Простите, я вас не понял!
@@ -18,5 +18,26 @@ theme: /
         random:
             a: Попробуйте ответить по-другому.
             a: Переформулируйте, пожалуйста, ваш вопрос.
+            
+    state: SuggestPlay || modal = true
+        a: На какой спектакль вы хотите пойти?
+        buttons:
+            "Брак по итальянски"
+            "Женитьбя Фигаро" 
+            "Скрипач на крыше" 
+        
+        state: ChoosePlay
+            q: * (~брак|~итал) *
+            q: * (женит*|~фигаро) *
+            q: * (~скрипач|~крыша) *
+            go!: /HowManyTickets
+            
+        state: LocalCatchAll
+            event: noMatch
+            a: Такаго спектакля пока нет на нашем реперутуаре. Выберите спектакль из списка.
+            
+    state: HowManyTickets
+        a: Скольно билетов вам нужно?
+        go!: ..
 
     
