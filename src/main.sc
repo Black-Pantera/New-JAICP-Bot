@@ -19,7 +19,7 @@ theme: /
             a: Попробуйте ответить по-другому.
             a: Переформулируйте, пожалуйста, ваш вопрос.
             
-    state: SuggestPlay || modul modal = true
+    state: SuggestPlay || modal = true
         random:
             a: На какой спектакль вы хотите пойти?
             a: Какой спектакль вас интересует?
