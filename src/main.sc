@@ -2,7 +2,7 @@ require: patterns.sc
 
 init:
     bind("postProcess", function($context) {
-        log("//////// MY LOG "+ toPrettyString($context));
+        $context.session.lastState = $context.currentState;
     });
    
 theme: /
@@ -32,6 +32,7 @@ theme: /
         random:
             a: Попробуйте ответить по-другому.
             a: Переформулируйте, пожалуйста, ваш вопрос.
+        go!: {{$session.lastState}}
             
     state: SuggestPlay || modal = true
         a: Какой спектакль вас интересует?
