@@ -1,4 +1,9 @@
 require: patterns.sc
+
+init:
+    bind("postProcess", function($context) {
+        log("//////// MY LOG "+ toPrettyString($context));
+    });
    
 theme: /
 
