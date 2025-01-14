@@ -23,10 +23,16 @@ theme: /
     state: SuggestPlay || modal = true
         a: Какой спектакль вас интересует?
         a: {{$request.channelType}}
-        buttons:
-            "Брак по итальянски"
-            "Женитьбя Фигаро" 
-            "Скрипач на крыше" 
+        if: $request.channelType === "telegram"
+            inlineButtons:
+                { text: "Брак по итальянски", url: "https://teatrkachalov.ru/affiche/detail/?id=1246" }
+                { text: "Безумный день, или Женитьбя Фигаро", url: "https://www.teatrkachalov.ru/affiche/detail/?id=1114" }
+                { text: "Скрипач на крыше", url: "https://teatrkachalov.ru/affiche/detail/?id=373" }
+        else:
+            buttons:
+                "Брак по итальянски"
+                "Безумный день, или Женитьбя Фигаро" 
+                "Скрипач на крыше" 
         
         state: ChoosePlay
             q: * (~брак|~итал) *
