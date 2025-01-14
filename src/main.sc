@@ -87,7 +87,8 @@ theme: /
                 "Да"
                 "Отмена" 
       
-        
+        state: ClientAnswer
+            q: (да|отмена)
     
         
 
