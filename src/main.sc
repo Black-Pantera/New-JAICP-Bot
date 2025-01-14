@@ -72,7 +72,7 @@ theme: /
             
     state: Confirm
         script:
-            var answer = "Итак, вы заказали " + $session.TicketsNumber + " " + nlp.conform("билет", $session.TicketsNumber) +" на спектакль '"+$session.chosenPlay+"'";
+            var answer = "Итак, вы заказали " + $session.TicketsNumber + " " + $nlp.conform("билет", $session.TicketsNumber) +" на спектакль '"+$session.chosenPlay+"'";
             $reactions.answer(answer);
     
         
